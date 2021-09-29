@@ -1,0 +1,52 @@
+<h1>Add New Inventory</h1>
+
+<form [formGroup]="inventoryForm" (ngSubmit)="submit()">
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field class="mr-10" appearance="outline" fxFlex="48">
+            <mat-label>Brand</mat-label>
+            <input name="brand" formControlName="brand" matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlexOffset="4" fxFlex="48">
+            <mat-label>Cost</mat-label>
+            <input type="number" name="cost" formControlName="cost" matInput required>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field appearance="outline" fxFlex="48">
+            <mat-label>Type</mat-label>
+            <input name="type" formControlName="type" matInput>
+        </mat-form-field>
+        <mat-checkbox formControlName="sold" fxFlexOffset="4" fxFlex="48">
+            Sold
+        </mat-checkbox>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field appearance="outline" fxFlex="48">
+            <mat-label>Total Order Price</mat-label>
+            <input type="number" name="total_order_price" formControlName="total_order_price" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlexOffset="4" fxFlex="48">
+            <mat-label>Platform Sold On</mat-label>
+            <input name="platform_sold_on" formControlName="platform_sold_on" matInput>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Add description"
+                      name="description"
+                      rows="5"
+                      formControlName="description"></textarea>
+        </mat-form-field>
+    </div>
+    <button style="width: 100%" mat-raised-button color="primary" type="submit">
+        SAVE
+    </button>
+</form>

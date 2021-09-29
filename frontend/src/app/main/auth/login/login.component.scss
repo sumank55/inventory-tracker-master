@@ -1,0 +1,164 @@
+@import "src/@fuse/scss/fuse";
+.login-form {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+
+    &-left {
+        width: 580px;
+        height: 100%;
+        &-logo {
+            width: 100%;
+            height: 312px;
+            background: #e2e3e4;
+            text-align: center;
+            img {
+                margin-top: 109px;
+                width: 248px;
+                height: 132.6px;
+            }
+        }
+        &-form {
+            width: 100%;
+            height: 100%;
+            background: #d2d3d8;
+            padding-top: 108px;
+            padding-left: 76px;
+            .LOGIN-TO-YOUR-ACCOUNT {
+              font-family: Roboto, "Helvetica Neue", sans-serif;
+              font-size: 30px;
+              font-weight: 500;
+              color: #0b2b3a;
+            }
+
+        }
+    }
+    &-right {
+        width: calc(100vw - 580px);
+        height: 100%;
+        background-image: url("assets/images/login/background.webp");
+        &-top {
+            height: 312px;
+            border-bottom: 1px #707070 solid;
+            width: 900px;
+        }
+    }
+}
+
+#login-form {
+    padding: 128px 48px 48px 48px;
+
+    @include media-breakpoint('xs') {
+        text-align: center;
+        padding: 24px;
+    }
+    form {
+        width: 100%;
+        padding-top: 32px;
+
+        mat-form-field {
+            width: 100%;
+
+            @include media-breakpoint('xs') {
+                width: 80%;
+            }
+        }
+
+        mat-checkbox {
+            margin: 0;
+        }
+
+        .remember-forgot-password {
+            font-size: 13px;
+            margin-top: 8px;
+
+            .forgot-password {
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 16px
+            }
+        }
+
+        .submit-button {
+            width: 100%;
+            margin: 16px auto;
+            display: block;
+
+            @include media-breakpoint('xs') {
+                width: 80%;
+            }
+        }
+    }
+
+    .separator {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 24px auto;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        text-align: center;
+
+        .text {
+            display: inline-flex;
+            position: relative;
+            padding: 0 8px;
+            z-index: 9999;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                width: 30px;
+                position: absolute;
+                top: 10px;
+                border-top: 1px solid;
+            }
+
+            &:before {
+                right: 100%;
+            }
+
+            &:after {
+                left: 100%;
+            }
+        }
+    }
+}
+
+.border {
+    //background: #707070;
+    border: 1px #707070 solid;
+    width: 70%;
+}
+.Welcome-to-IGOR {
+    padding-top: 227.6px;
+    color: white;
+    padding-left: 189px;
+    height: 56px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 46px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.22;
+    letter-spacing: 1.01px;
+    text-align: left;
+}
+
+.title-detail {
+    color: white;
+    padding-left: 189px;
+    padding-top: 32.6px;
+    width: 774px;
+    height: 100px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    text-align: left;
+}

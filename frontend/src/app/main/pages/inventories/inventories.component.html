@@ -1,0 +1,106 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+    <h1>Inventories</h1>
+    <button mat-raised-button color="primary" [routerLink]="'/pages/inventories/new/'">Add New</button>
+</div>
+<div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon>search</mat-icon>
+    <input [formControl]="searchInput" placeholder="Search for a inventory">
+</div>
+
+<mat-table #table [dataSource]="dataSource">
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.brand}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Cost Column -->
+    <ng-container matColumnDef="cost">
+        <mat-header-cell *matHeaderCellDef>Cost</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.cost}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.type}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Total Order Price Column -->
+    <ng-container matColumnDef="total_order_price">
+        <mat-header-cell *matHeaderCellDef>Total Order Price</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.total_order_price}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Platform Sold On Column -->
+    <ng-container matColumnDef="platform_sold_on">
+        <mat-header-cell *matHeaderCellDef>Platform Sold On</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.platform_sold_on}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Sold Column -->
+    <ng-container matColumnDef="sold">
+        <mat-header-cell *matHeaderCellDef>Sold</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.sold}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Sold Date Column -->
+    <ng-container matColumnDef="sold_date">
+        <mat-header-cell *matHeaderCellDef>Sold Date</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.sold_date}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Created Date Column -->
+    <ng-container matColumnDef="created_date">
+        <mat-header-cell *matHeaderCellDef>Created Date</mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <p class="text-truncate font-weight-600">{{inventory.created_date}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Buttons Column -->
+    <ng-container matColumnDef="button">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let inventory">
+            <div fxFlex="row" fxLayoutAlign="end center">
+                <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
+                        (click)="$event.stopPropagation();">
+                    <mat-icon class="secondary-text">more_vert</mat-icon>
+                </button>
+
+                <mat-menu #moreMenu="matMenu">
+                    <button mat-menu-item aria-label="remove" (click)="editInventory(inventory)">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item aria-label="remove" (click)="deleteInventory(inventory)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove</span>
+                    </button>
+                </mat-menu>
+            </div>
+
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let inventory; columns: displayedColumns;"
+             class="contact">
+    </mat-row>
+</mat-table>
+
+

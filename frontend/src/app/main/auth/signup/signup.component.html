@@ -1,0 +1,74 @@
+<div class="login-form">
+    <div class="login-form-left">
+        <div class="login-form-left-form" id="login-form">
+            <div class="LOGIN-TO-YOUR-ACCOUNT">
+                SIGNUP YOUR ACCOUNT
+            </div>
+            <form name="signupForm" [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
+                <mat-form-field appearance="outline">
+                    <mat-label>UserName</mat-label>
+                    <input matInput formControlName="username">
+                    <mat-icon matSuffix class="secondary-text">people</mat-icon>
+                    <mat-error *ngIf="signupForm.get('username').hasError('required')">
+                        Username is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                    <mat-error *ngIf="signupForm.get('email').hasError('required')">
+                        Email is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="!signupForm.get('email').hasError('required') &&
+                                signupForm.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                    <mat-error>
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="signupForm.hasError('notSame')">
+                        Passwords do not match
+                    </mat-error>
+                </mat-form-field>
+                <mat-error>
+                    {{errorMessage}}
+                </mat-error>
+                <button mat-raised-button color="primary" class="submit-button" aria-label="LOGIN"
+                        [disabled]="signupForm.invalid || submitted">
+                    SignUp
+                </button>
+                <div class="remember-forgot-password" fxLayout="row" fxLayout.xs="column"
+                     fxLayoutAlign="space-between center">
+                    <a class="forgot-password" [routerLink]="'/auth/login'">
+                        Have account already? Click here to sign in
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="login-form-right">
+        <div class="login-form-right-top">
+            <div class="Welcome-to-IGOR">
+                Welcome to Inventory Tracker!
+            </div>
+        </div>
+        <div class="title-detail">
+            Your personal Lab Assistant that helps you manage all of your day-to day
+            Lab activities: From experiment planning and documentation to data
+            management, inventory, project management, cell culture and more….”
+        </div>
+    </div>
+</div>
